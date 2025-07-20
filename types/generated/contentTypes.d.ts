@@ -395,7 +395,7 @@ export interface ApiPredictionPrediction extends Struct.CollectionTypeSchema {
       'api::prediction.prediction'
     > &
       Schema.Attribute.Private;
-    notes: Schema.Attribute.Text;
+    prediction: Schema.Attribute.String;
     predictionConfidence: Schema.Attribute.Float &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
@@ -405,11 +405,8 @@ export interface ApiPredictionPrediction extends Struct.CollectionTypeSchema {
         },
         number
       >;
-    predictionStatus: Schema.Attribute.Enumeration<
-      ['healing', 'infected', 'concerning', 'normal']
-    > &
-      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    recommendations: Schema.Attribute.JSON;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
